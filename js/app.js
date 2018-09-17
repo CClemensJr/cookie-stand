@@ -4,7 +4,7 @@
 //DONE - 4. Add avgCookiesPerSale
 //DONE - 5. Create a randCustPerHour method that generates a random number of cust/hr
 //DONE - 6. Calculate the simulated amount of cookies purchased for each hour at each location using avgCookiesPerSale and randCustPerHour
-//7. Store results of calculation in an array
+//DONE - 7. Store results of calculation in an array
 //8. Display values of each array as an unordered list in the browser
 //9. Calculate the sum of hourly totals and display in browser.
 var storeHours   = [6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -86,5 +86,6 @@ function getHourlyCookieAverages()
 
     return cookieArray;
 }
+
 
 console.log(alki.avgCookiesPerHour());
