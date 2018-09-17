@@ -2,11 +2,13 @@
 //DONE - 2. Add minHourlyCustomers
 //DONE - 3. Add maxHourlyCustomers
 //DONE - 4. Add avgCookiesPerSale
-//5. Create a randCustPerHour method that generates a random number of cust/hr
-//6. Calculate and store the simulated amount of cookies purchased for each hour at each location using avgCookiesPerSale and randCustPerHour
+//DONE - 5. Create a randCustPerHour method that generates a random number of cust/hr
+//DONE - 6. Calculate the simulated amount of cookies purchased for each hour at each location using avgCookiesPerSale and randCustPerHour
 //7. Store results of calculation in an array
 //8. Display values of each array as an unordered list in the browser
 //9. Calculate the sum of hourly totals and display in browser.
+var storeHours   = [6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8];
+
 var firstAndPike = 
 {
     minHourlyCustomers: 23,
@@ -14,6 +16,7 @@ var firstAndPike =
     avgCookiesPerSale : 6.3,
 
     randCustPerHour   : getCustPerHour,
+    simAmtOfCookies   : getCookieAmount,
 }
 
 var seaTacAirport = 
@@ -23,6 +26,7 @@ var seaTacAirport =
     avgCookiesPerSale : 1.2,
 
     randCustPerHour   : getCustPerHour,
+    simAmtOfCookies   : getCookieAmount,
 }
 
 var seattleCenter = 
@@ -32,6 +36,7 @@ var seattleCenter =
     avgCookiesPerSale : 3.7,
 
     randCustPerHour   : getCustPerHour,
+    simAmtOfCookies   : getCookieAmount,
 }
 
 var capitolHill = 
@@ -41,6 +46,7 @@ var capitolHill =
     avgCookiesPerSale : 2.3,
 
     randCustPerHour   : getCustPerHour,
+    simAmtOfCookies   : getCookieAmount,
 }
 
 var alki = 
@@ -50,11 +56,15 @@ var alki =
     avgCookiesPerSale : 4.6,
 
     randCustPerHour   : getCustPerHour,
+    simAmtOfCookies   : getCookieAmount,
 }
 
 function getCustPerHour()
 {
-    return Math.random() * 
-          (this.maxHourlyCustomers - this.minHourlyCustomers) +      this.minHourlyCustomers;
+    return Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers) + this.minHourlyCustomers;
 }
-console.log(seaTacAirport.randCustPerHour());
+
+function getCookieAmount() 
+{
+    return ((this.randCustPerHour() * this.avgCookiesPerSale) /                 this.randCustPerHour());
+}
