@@ -17,6 +17,7 @@ var firstAndPike =
 
     randCustPerHour   : getCustPerHour,
     simAmtOfCookies   : getCookieAmount,
+    avgCookiesPerHour : getHourlyCookieAverages,
 }
 
 var seaTacAirport = 
@@ -27,6 +28,7 @@ var seaTacAirport =
 
     randCustPerHour   : getCustPerHour,
     simAmtOfCookies   : getCookieAmount,
+    avgCookiesPerHour : getHourlyCookieAverages,
 }
 
 var seattleCenter = 
@@ -37,6 +39,7 @@ var seattleCenter =
 
     randCustPerHour   : getCustPerHour,
     simAmtOfCookies   : getCookieAmount,
+    avgCookiesPerHour : getHourlyCookieAverages,
 }
 
 var capitolHill = 
@@ -47,6 +50,7 @@ var capitolHill =
 
     randCustPerHour   : getCustPerHour,
     simAmtOfCookies   : getCookieAmount,
+    avgCookiesPerHour : getHourlyCookieAverages,
 }
 
 var alki = 
@@ -57,6 +61,8 @@ var alki =
 
     randCustPerHour   : getCustPerHour,
     simAmtOfCookies   : getCookieAmount,
+    avgCookiesPerHour : getHourlyCookieAverages,
+
 }
 
 function getCustPerHour()
@@ -68,3 +74,17 @@ function getCookieAmount()
 {
     return ((this.randCustPerHour() * this.avgCookiesPerSale) /                 this.randCustPerHour());
 }
+
+function getHourlyCookieAverages()
+{
+    var cookieArray = [];
+
+    for (var i = 0; i < storeHours.length; i++)
+    {
+        cookieArray[i] = this.simAmtOfCookies();
+    }
+
+    return cookieArray;
+}
+
+console.log(alki.avgCookiesPerHour());
