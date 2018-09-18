@@ -14,70 +14,17 @@ function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
     this.maxCustPerHr      = maxCustPerHr;
     this.avgCookiesPerSale = avgCookiesPerSale;
 
-    Store.locations.push[this];
+    Store.locations.push(this);
 }
 
 Store.locations = [];
 
-var firstAndPike = 
-{
-    storeLoc          : '1st and Pike',
-    minHourlyCustomers: 23,
-    maxHourlyCustomers: 65, 
-    avgCookiesPerSale : 6.3,
+var firstAndPike  = new Store('1st and Pike', 23, 65, 6.3);
+var seaTacAirport = new Store('SeaTac Airport', 3, 24, 1.2);
+var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
+var capitolHill   = new Store('Capitol Hill', 20, 38, 2.3);
+var alki          = new Store('Alki', 2, 16, 4.6);
 
-    randCustPerHour   : getCustPerHour,
-    simAmtOfCookies   : getCookieAmount,
-    avgCookiesPerHour : getHourlyCookieAverages
-}
-
-var seaTacAirport = 
-{
-    location          : 'SeaTac Airport',
-    minHourlyCustomers: 3,
-    maxHourlyCustomers: 24,
-    avgCookiesPerSale : 1.2,
-
-    randCustPerHour   : getCustPerHour,
-    simAmtOfCookies   : getCookieAmount,
-    avgCookiesPerHour : getHourlyCookieAverages,
-}
-
-var seattleCenter = 
-{
-    location          : 'Seattle Center',
-    minHourlyCustomers: 11,
-    maxHourlyCustomers: 38,
-    avgCookiesPerSale : 3.7,
-
-    randCustPerHour   : getCustPerHour,
-    simAmtOfCookies   : getCookieAmount,
-    avgCookiesPerHour : getHourlyCookieAverages,
-}
-
-var capitolHill = 
-{
-    location          : 'Capitol Hill',
-    minHourlyCustomers: 20,
-    maxHourlyCustomers: 38,
-    avgCookiesPerSale : 2.3,
-
-    randCustPerHour   : getCustPerHour,
-    simAmtOfCookies   : getCookieAmount,
-    avgCookiesPerHour : getHourlyCookieAverages,
-}
-
-var alki = 
-{
-    location          : 'Alki',
-    minHourlyCustomers: 2,
-    maxHourlyCustomers: 16,
-    avgCookiesPerSale : 4.6,
-
-    randCustPerHour   : getCustPerHour,
-    simAmtOfCookies   : getCookieAmount,
-    avgCookiesPerHour : getHourlyCookieAverages,
-}
 
 function getCustPerHour()
 {  
@@ -171,4 +118,4 @@ for (var i = 0; i < storeHours.length; i++)
 
     var position = document.getElementsByTagName('ul')[4];
     position.appendChild(newEl);
-}
+}*/
