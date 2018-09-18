@@ -3,9 +3,10 @@
 //show the total amount of projected cookie needs at each location with the table displaying the cookie stand location, the total number of cookies needed for each location, an hourly breakdown of total cookies sales for each location, and [STRETCH GOAL] a footer row of totals for each column
 'use strict';
 
-var storeHours   = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', 
-                    '11am: ', '12am: ', '1pm: ', '2pm: ', '3pm: ', 
-                    '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+var storeHours  = ['6am', '7am', '8am', '9am', '10am', 
+                   '11am', '12am', '1pm', '2pm', '3pm', 
+                   '4pm', '5pm', '6pm', '7pm', '8pm'];
+var globalTable = document.createElement('table')
 
 function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
 {
@@ -57,14 +58,68 @@ Store.prototype.totalCookiesSold = function()
     return totalCookies;
 }
 
+function renderTableHead(table) {
+    var thead = document.createElement('thead');
+    var tr    = document.createElement('tr');
+
+    for (var i = 0; i < storeHours.length; i++)
+    {
+        var th        = document.createElement('th');
+        var timeOfDay = document.createTextNode(storeHours[i]);
+
+        th.appendChild(timeOfDay);
+        tr.appendChild(th);
+        thead.appendChild(tr);
+        table.appendChild(thead);
+    }
+
+    document.body.appendChild(table);
+}
+
+function renderTableBody(table)
+{
+    var tbody = document.createElement('tbody');
+    var tr    = document.createElement('tr');
+
+    for (var i = 0; i < Store.locations.length; i++)
+    {
+        for (var j = )
+        var th        = document.createElement('th');
+        var td        = document.createElement('td');
+        var storeName = document.createTextNode(Store.locations[i].location);
+        var
+
+        th.appendChild(storeName);
+        tr.appendChild(th);
+        tbody.appendChild(tr);
+        table.appendChild(tbody);
+    }
+
+    document.body.appendChild(table);
+}
+
+
 var firstAndPike  = new Store('1st and Pike',   23, 65, 6.3);
 var seaTacAirport = new Store('SeaTac Airport', 3,  24, 1.2);
 var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
 var capitolHill   = new Store('Capitol Hill',   20, 38, 2.3);
 var alki          = new Store('Alki',           2,  16, 4.6);
 
-console.log(firstAndPike.getAvgCookiesSold());
 
+renderTableHead(globalTable);
+renderTableBody(globalTable);
+
+/*(function renderStoreLocations()
+{
+
+    for (var i = 0; i < Store.locations.length; i++)
+    {
+        Store.locations.
+    }
+    //Declare table elemens
+    var table = document.createElement('table');
+    
+})();*/
 /*
 var store1 = document.getElementById("first-and-pike");
 store1.textContent = firstAndPike.storeLoc;
