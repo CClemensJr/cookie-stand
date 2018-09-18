@@ -3,7 +3,7 @@
 //show the total amount of projected cookie needs at each location with the table displaying the cookie stand location, the total number of cookies needed for each location, an hourly breakdown of total cookies sales for each location, and [STRETCH GOAL] a footer row of totals for each column
 'use strict';
 
-var storeHours  = ['6am', '7am', '8am', '9am', '10am', 
+var storeHours  = ['', '6am', '7am', '8am', '9am', '10am', 
                    '11am', '12am', '1pm', '2pm', '3pm', 
                    '4pm', '5pm', '6pm', '7pm', '8pm'];
 var globalTable = document.createElement('table')
@@ -30,7 +30,7 @@ Store.prototype.getCustPerHour = function()
 
 Store.prototype.getAvgCookiesSold = function()
 {
-    return Math.floor((this.getCustPerHour() * this.avgCookiesPerSale) /              
+    return Math.floor((this.getCustPerHour() * this.avgCookiesPerSale + 1) /     
                        this.getCustPerHour());
 }
 
@@ -78,23 +78,29 @@ function renderTableHead(table) {
 
 function renderTableBody(table)
 {
-    var tbody = document.createElement('tbody');
-    var tr    = document.createElement('tr');
-
-    for (var i = 0; i < Store.locations.length; i++)
+    var tbody       = document.createElement('tbody');
+    
+    for (var j = 0; j < Store.locations.length; j++)
     {
-        for (var j = )
-        var th        = document.createElement('th');
-        var td        = document.createElement('td');
-        var storeName = document.createTextNode(Store.locations[i].location);
-        var
-
+        var tr          = document.createElement('tr');
+        var th          = document.createElement('th');
+        var storeName   = document.createTextNode(Store.locations[j].location);
         th.appendChild(storeName);
         tr.appendChild(th);
+
+        for (var i = 0; i < storeHours.length; i++)
+        {
+            console.log(Store.locations[j].location)
+            console.log(Store.locations[j].getAvgCookiesSoldPerHr()[i]);
+            var td          = document.createElement('td');
+            var cookieSales = document.createTextNode(Store.locations[j].getAvgCookiesSoldPerHr()[i]);
+            td.appendChild(cookieSales);
+            tr.appendChild(td);
+        }
+        
         tbody.appendChild(tr);
         table.appendChild(tbody);
     }
-
     document.body.appendChild(table);
 }
 
