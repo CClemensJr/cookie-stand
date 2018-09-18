@@ -19,26 +19,19 @@ function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
 
 Store.locations = [];
 
-var firstAndPike  = new Store('1st and Pike', 23, 65, 6.3);
-var seaTacAirport = new Store('SeaTac Airport', 3, 24, 1.2);
-var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
-var capitolHill   = new Store('Capitol Hill', 20, 38, 2.3);
-var alki          = new Store('Alki', 2, 16, 4.6);
-
-
-function getCustPerHour()
+Store.prototype.getCustPerHour = function()
 {  
     return Math.floor(Math.random() * 
                      (this.maxCustPerHr - this.minCustPerHr + 1) + 
                       this.minCustPerHr);
 }
 
-function getCookieAmount() 
+Store.prototype.getCookieAmount = function()
 {
     return Math.floor((this.randCustPerHour() * this.avgCookiesPerSale));
 }
 
-function getHourlyCookieAverages()
+Store.prototype.getHourlyCookieAverages = function()
 {
     var cookieArray = [];
 
@@ -50,6 +43,15 @@ function getHourlyCookieAverages()
     return cookieArray;
 }
 
+var firstAndPike  = new Store('1st and Pike', 23, 65, 6.3);
+var seaTacAirport = new Store('SeaTac Airport', 3, 24, 1.2);
+var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
+var capitolHill   = new Store('Capitol Hill', 20, 38, 2.3);
+var alki          = new Store('Alki', 2, 16, 4.6);
+
+console.log(alki.getCustPerHour());
+
+/*
 var store1 = document.getElementById("first-and-pike");
 store1.textContent = firstAndPike.storeLoc;
 for (var i = 0; i < storeHours.length; i++)
