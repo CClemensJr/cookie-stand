@@ -9,10 +9,11 @@ var storeHours   = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ',
 
 function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
 {
-    this.location          = location;
-    this.minCustPerHr      = minCustPerHr;
-    this.maxCustPerHr      = maxCustPerHr;
-    this.avgCookiesPerSale = avgCookiesPerSale;
+    this.location            = location;
+    this.minCustPerHr        = minCustPerHr;
+    this.maxCustPerHr        = maxCustPerHr;
+    this.avgCookiesPerSale   = avgCookiesPerSale;
+    this.avgCookiesSoldPerHr = [];
 
     Store.locations.push(this);
 }
@@ -26,30 +27,43 @@ Store.prototype.getCustPerHour = function()
                       this.minCustPerHr);
 }
 
-Store.prototype.getCookieAmount = function()
+Store.prototype.getAvgCookiesSold = function()
 {
-    return Math.floor((this.randCustPerHour() * this.avgCookiesPerSale));
+    return Math.floor((this.getCustPerHour() * this.avgCookiesPerSale) /              
+                       this.getCustPerHour());
 }
 
-Store.prototype.getHourlyCookieAverages = function()
+Store.prototype.getAvgCookiesSoldPerHr = function()
 {
     var cookieArray = [];
 
     for (var i = 0; i < storeHours.length; i++)
     {
-        cookieArray[i] = this.simAmtOfCookies();
+        cookieArray[i] = this.getAvgCookiesSold();
     }
 
     return cookieArray;
 }
 
-var firstAndPike  = new Store('1st and Pike', 23, 65, 6.3);
-var seaTacAirport = new Store('SeaTac Airport', 3, 24, 1.2);
-var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
-var capitolHill   = new Store('Capitol Hill', 20, 38, 2.3);
-var alki          = new Store('Alki', 2, 16, 4.6);
+Store.prototype.totalCookiesSold = function()
+{
+    var totalCookies = 0;
 
-console.log(alki.getCustPerHour());
+    for (var i = 0; i < storeHours.length; i++)
+    {
+        totalCookies += this.getAvgCookiesSoldPerHr()[i];
+    }
+
+    return totalCookies;
+}
+
+var firstAndPike  = new Store('1st and Pike',   23, 65, 6.3);
+var seaTacAirport = new Store('SeaTac Airport', 3,  24, 1.2);
+var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
+var capitolHill   = new Store('Capitol Hill',   20, 38, 2.3);
+var alki          = new Store('Alki',           2,  16, 4.6);
+
+console.log(firstAndPike.getAvgCookiesSold());
 
 /*
 var store1 = document.getElementById("first-and-pike");
