@@ -7,6 +7,8 @@
 //DONE - 7. Store results of calculation in an array
 //8. Display values of each array as an unordered list in the browser
 //9. Calculate the sum of hourly totals and display in browser.
+'use strict';
+
 var storeHours   = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', 
                     '11am: ', '12am: ', '1pm: ', '2pm: ', '3pm: ', 
                     '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
@@ -73,12 +75,13 @@ var alki =
 
 function getCustPerHour()
 {
-    return Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers) + this.minHourlyCustomers;
+    
+    return Math.floor(Math.random() * (this.maxHourlyCustomers -        this.minHourlyCustomers + 1) + this.minHourlyCustomers);
 }
 
 function getCookieAmount() 
 {
-    return ((this.randCustPerHour() * this.avgCookiesPerSale));
+    return Math.floor((this.randCustPerHour() * this.avgCookiesPerSale));
 }
 
 function getHourlyCookieAverages()
@@ -94,12 +97,13 @@ function getHourlyCookieAverages()
 }
 
 var store1 = document.getElementById("first-and-pike");
-store1.innerHTML = firstAndPike.storeLoc;
+store1.textContent = firstAndPike.storeLoc;
 for (var i = 0; i < storeHours.length; i++)
 {
     var newEl   = document.createElement('li');
     var newText = document.createTextNode(storeHours[i] + 
-                                          firstAndPike.avgCookiesPerHour()[i]);
+                                          firstAndPike.avgCookiesPerHour()[i] +
+                                          ' cookies');
     newEl.appendChild(newText);
 
     var position = document.getElementsByTagName('ul')[0];
@@ -107,12 +111,13 @@ for (var i = 0; i < storeHours.length; i++)
 }
 
 var store2 = document.getElementById("seatac-airport");
-store2.innerHTML = seaTacAirport.storeLoc;
+store2.textContent = seaTacAirport.storeLoc;
 for (var i = 0; i < storeHours.length; i++)
 {
     var newEl   = document.createElement('li');
     var newText = document.createTextNode(storeHours[i] + 
-                                          seaTacAirport.avgCookiesPerHour()[i]);
+                                          seaTacAirport.avgCookiesPerHour()[i] +
+                                          ' cookies');
     newEl.appendChild(newText);
 
     var position = document.getElementsByTagName('ul')[1];
@@ -125,7 +130,8 @@ for (var i = 0; i < storeHours.length; i++)
 {
     var newEl   = document.createElement('li');
     var newText = document.createTextNode(storeHours[i] + 
-                                          seattleCenter.avgCookiesPerHour()[i]);
+                                          seattleCenter.avgCookiesPerHour()[i] +
+                                          ' cookies');
     newEl.appendChild(newText);
 
     var position = document.getElementsByTagName('ul')[2];
@@ -138,7 +144,8 @@ for (var i = 0; i < storeHours.length; i++)
 {
     var newEl   = document.createElement('li');
     var newText = document.createTextNode(storeHours[i] + 
-                                          capitolHill.avgCookiesPerHour()[i]);
+                                          capitolHill.avgCookiesPerHour()[i]  +
+                                          ' cookies');
     newEl.appendChild(newText);
 
     var position = document.getElementsByTagName('ul')[3];
@@ -151,7 +158,8 @@ for (var i = 0; i < storeHours.length; i++)
 {
     var newEl   = document.createElement('li');
     var newText = document.createTextNode(storeHours[i] + 
-                                          alki.avgCookiesPerHour()[i]);
+                                          alki.avgCookiesPerHour()[i] +
+                                          ' cookies');
     newEl.appendChild(newText);
 
     var position = document.getElementsByTagName('ul')[4];
