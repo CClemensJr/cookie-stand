@@ -1,17 +1,23 @@
-//DONE - 1. Create objects for each location
-//DONE - 2. Add minHourlyCustomers
-//DONE - 3. Add maxHourlyCustomers
-//DONE - 4. Add avgCookiesPerSale
-//DONE - 5. Create a randCustPerHour method that generates a random number of cust/hr
-//DONE - 6. Calculate the simulated amount of cookies purchased for each hour at each location using avgCookiesPerSale and randCustPerHour
-//DONE - 7. Store results of calculation in an array
-//8. Display values of each array as an unordered list in the browser
-//9. Calculate the sum of hourly totals and display in browser.
+//Replace your object literals for the salmon cookie stands with a single constructor function that, when called with 'new', creates new instances
+//Replacing the lists of data for each store, and building a single table of data instead
+//show the total amount of projected cookie needs at each location with the table displaying the cookie stand location, the total number of cookies needed for each location, an hourly breakdown of total cookies sales for each location, and [STRETCH GOAL] a footer row of totals for each column
 'use strict';
 
 var storeHours   = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', 
                     '11am: ', '12am: ', '1pm: ', '2pm: ', '3pm: ', 
                     '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+
+function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
+{
+    this.location          = location;
+    this.minCustPerHr      = minCustPerHr;
+    this.maxCustPerHr      = maxCustPerHr;
+    this.avgCookiesPerSale = avgCookiesPerSale;
+
+    Store.locations.push[this];
+}
+
+Store.locations = [];
 
 var firstAndPike = 
 {
@@ -74,9 +80,10 @@ var alki =
 }
 
 function getCustPerHour()
-{
-    
-    return Math.floor(Math.random() * (this.maxHourlyCustomers -        this.minHourlyCustomers + 1) + this.minHourlyCustomers);
+{  
+    return Math.floor(Math.random() * 
+                     (this.maxCustPerHr - this.minCustPerHr + 1) + 
+                      this.minCustPerHr);
 }
 
 function getCookieAmount() 
