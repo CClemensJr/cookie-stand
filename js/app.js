@@ -3,7 +3,8 @@
 var storeHours  = ['', '6am', '7am', '8am', '9am', '10am', 
                    '11am', '12am', '1pm', '2pm', '3pm', 
                    '4pm', '5pm', '6pm', '7pm', '8pm'];
-var globalTable = document.createElement('table')
+var globalTable = document.createElement('table');
+Store.locations = [];
 
 function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
 {
@@ -16,8 +17,6 @@ function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
     Store.locations.push(this);
 }
 
-Store.locations = [];
-
 Store.prototype.getCustPerHour = function()
 {  
     return Math.floor(Math.random() * 
@@ -27,8 +26,7 @@ Store.prototype.getCustPerHour = function()
 
 Store.prototype.getAvgCookiesSold = function()
 {
-    return Math.floor((this.getCustPerHour() * this.avgCookiesPerSale + 1) /     
-                       this.getCustPerHour());
+    return Math.floor(this.getCustPerHour() * this.avgCookiesPerSale + 1);
 }
 
 Store.prototype.getAvgCookiesSoldPerHr = function()
@@ -99,7 +97,7 @@ function renderTableBody(table)
     document.body.appendChild(table);
 }
 
-function renderTableFoot(table)
+/*function renderTableFoot(table)
 {
     var hourlyTotals = ['Totals'];
     var cookies = 0;
@@ -126,7 +124,7 @@ function renderTableFoot(table)
 
         console.log(hourlyTotals);
     } 
-}
+}*/
 
 var firstAndPike  = new Store('1st and Pike',   23, 65, 6.3);
 var seaTacAirport = new Store('SeaTac Airport', 3,  24, 1.2);
@@ -137,4 +135,4 @@ var alki          = new Store('Alki',           2,  16, 4.6);
 
 renderTableHead(globalTable);
 renderTableBody(globalTable);
-renderTableFoot(globalTable);
+//renderTableFoot(globalTable);
