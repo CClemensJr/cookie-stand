@@ -1,6 +1,3 @@
-//Replace your object literals for the salmon cookie stands with a single constructor function that, when called with 'new', creates new instances
-//Replacing the lists of data for each store, and building a single table of data instead
-//show the total amount of projected cookie needs at each location with the table displaying the cookie stand location, the total number of cookies needed for each location, an hourly breakdown of total cookies sales for each location, and [STRETCH GOAL] a footer row of totals for each column
 'use strict';
 
 var storeHours  = ['', '6am', '7am', '8am', '9am', '10am', 
@@ -79,7 +76,7 @@ function renderTableHead(table) {
 function renderTableBody(table)
 {
     var tbody       = document.createElement('tbody');
-    
+
     for (var j = 0; j < Store.locations.length; j++)
     {
         var tr          = document.createElement('tr');
@@ -90,8 +87,6 @@ function renderTableBody(table)
 
         for (var i = 0; i < storeHours.length; i++)
         {
-            console.log(Store.locations[j].location)
-            console.log(Store.locations[j].getAvgCookiesSoldPerHr()[i]);
             var td          = document.createElement('td');
             var cookieSales = document.createTextNode(Store.locations[j].getAvgCookiesSoldPerHr()[i]);
             td.appendChild(cookieSales);
@@ -114,85 +109,3 @@ var alki          = new Store('Alki',           2,  16, 4.6);
 
 renderTableHead(globalTable);
 renderTableBody(globalTable);
-
-/*(function renderStoreLocations()
-{
-
-    for (var i = 0; i < Store.locations.length; i++)
-    {
-        Store.locations.
-    }
-    //Declare table elemens
-    var table = document.createElement('table');
-    
-})();*/
-/*
-var store1 = document.getElementById("first-and-pike");
-store1.textContent = firstAndPike.storeLoc;
-for (var i = 0; i < storeHours.length; i++)
-{
-    var newEl   = document.createElement('li');
-    var newText = document.createTextNode(storeHours[i] + 
-                                          firstAndPike.avgCookiesPerHour()[i] +
-                                          ' cookies');
-    newEl.appendChild(newText);
-
-    var position = document.getElementsByTagName('ul')[0];
-    position.appendChild(newEl);
-}
-
-var store2 = document.getElementById("seatac-airport");
-store2.textContent = seaTacAirport.storeLoc;
-for (var i = 0; i < storeHours.length; i++)
-{
-    var newEl   = document.createElement('li');
-    var newText = document.createTextNode(storeHours[i] + 
-                                          seaTacAirport.avgCookiesPerHour()[i] +
-                                          ' cookies');
-    newEl.appendChild(newText);
-
-    var position = document.getElementsByTagName('ul')[1];
-    position.appendChild(newEl);
-}
-
-var store3 = document.getElementById("seattle-center");
-store3.innerHTML = seattleCenter.storeLoc;
-for (var i = 0; i < storeHours.length; i++)
-{
-    var newEl   = document.createElement('li');
-    var newText = document.createTextNode(storeHours[i] + 
-                                          seattleCenter.avgCookiesPerHour()[i] +
-                                          ' cookies');
-    newEl.appendChild(newText);
-
-    var position = document.getElementsByTagName('ul')[2];
-    position.appendChild(newEl);
-}
-
-var store4 = document.getElementById("capitol-hill");
-store4.innerHTML = capitolHill.storeLoc;
-for (var i = 0; i < storeHours.length; i++)
-{
-    var newEl   = document.createElement('li');
-    var newText = document.createTextNode(storeHours[i] + 
-                                          capitolHill.avgCookiesPerHour()[i]  +
-                                          ' cookies');
-    newEl.appendChild(newText);
-
-    var position = document.getElementsByTagName('ul')[3];
-    position.appendChild(newEl);
-}
-
-var store5 = document.getElementById("alki");
-store5.innerHTML = alki.storeLoc;
-for (var i = 0; i < storeHours.length; i++)
-{
-    var newEl   = document.createElement('li');
-    var newText = document.createTextNode(storeHours[i] + 
-                                          alki.avgCookiesPerHour()[i] +
-                                          ' cookies');
-    newEl.appendChild(newText);
-
-    var position = document.getElementsByTagName('ul')[4];
-    position.appendChild(newEl);
-}*/
