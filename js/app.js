@@ -104,38 +104,28 @@ function renderTableFoot(table)
     var hourlyTotals = ['Totals'];
     var cookies = 0;
 
-    var tfoot           = document.createElement('tfoot');
-    var tr              = document.createElement('tr');
-    var th              = document.createElement('th');
-    var totalSalesLabel = document.createTextNode(hourlyTotals[0]);
-
-    th.appendChild(totalSalesLabel);
-    tr.appendChild(th);
+    var tfoot = document.createElement('tfoot');
 
     for (var i = 0; i < storeHours.length; i++)
     {
-        //var colData   = document.createTextNode(cookies);
-        //var td        = document.createElement('th');   
+        var colTotals   = document.createTextNode(hourlyTotals[0]);
+        var th          = document.createElement('th');
+        var td
+        var tr          = document.createElement('tr');
+
+        th.appendChild(colTotals);
+        tr.appendChild(th);
 
         for (var j = 0; j < Store.locations.length; j++)
         {
             cookies += Store.locations[j].getAvgCookiesSoldPerHr()[i];
-            hourlyTotals[i + 1] = cookies;
-            console.log(Store.locations[j].getAvgCookiesSoldPerHr()[i]);
         }
+        hourlyTotals.push(cookies);
 
-        var colData   = document.createTextNode(hourlyTotals[i + 1]);
-        var td        = document.createElement('th'); 
 
-        td.appendChild(colData);
-        tr.appendChild(td);
 
         console.log(hourlyTotals);
-    }
-    
-    tfoot.appendChild(tr);
-    table.appendChild(tfoot)
-    document.body.appendChild(table);
+    } 
 }
 
 var firstAndPike  = new Store('1st and Pike',   23, 65, 6.3);
