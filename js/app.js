@@ -12,8 +12,8 @@ function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
     this.minCustPerHr        = minCustPerHr;
     this.maxCustPerHr        = maxCustPerHr;
     this.avgCookiesPerSale   = avgCookiesPerSale;
-    //this.avgCookiesSoldPerHr = [];
-    this.totalCookiesStore   = [];
+    this.storeTotal          = 0
+    this.cookiesSold         = [];
     this.totalCookiesHour    = [];
 
     this.getCookieTotals();
@@ -37,9 +37,9 @@ Store.prototype.getCookieTotals = function()
 {
     for (var i = 0; i < storeHours.length; i++)
     {
-        this.totalCookiesStore[i] = this.getAvgCookiesSold();
+        this.cookiesSold[i] = this.getAvgCookiesSold();
+        this.storeTotal    += this.cookiesSold[i];
     }
-    console.log('Store Cookie Totals' + this.totalCookiesStore);
 
     /*for (var i in Store.stores)
     {
@@ -99,24 +99,29 @@ function renderTableHead(table) {
 
 function renderTableBody(table)
 {
-    var tbody       = document.createElement('tbody');
+    var tbody = document.createElement('tbody');
 
-    for (var j = 0; j < Store.locations.length; j++)
+    for (var j = 0; j < Store.stores.length; j++)
     {
         var tr          = document.createElement('tr');
         var th          = document.createElement('th');
-        var storeName   = document.createTextNode(Store.locations[j].location);
+        var totalsTD    = document.createElement('td');
+        var storeName   = document.createTextNode(Store.stores[j].location);
+        var storeTotals = document.createTextNode(Store.stores[j].storeTotal)
+
         th.appendChild(storeName);
         tr.appendChild(th);
 
         for (var i = 0; i < storeHours.length; i++)
         {
             var td          = document.createElement('td');
-            var cookieSales = document.createTextNode(Store.locations[j].getAvgCookiesSoldPerHr()[i]);
+            var cookieSales = document.createTextNode(Store.stores[j].cookiesSold[i]);
             td.appendChild(cookieSales);
             tr.appendChild(td);
         }
-        
+
+        totalsTD.appendChild(storeTotals);
+        tr.appendChild(totalsTD);
         tbody.appendChild(tr);
         table.appendChild(tbody);
     }
