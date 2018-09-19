@@ -1,10 +1,10 @@
 'use strict';
 
-var storeHours  = ['', '6am', '7am', '8am', '9am', '10am', 
+var storeHours  = ['6am', '7am', '8am', '9am', '10am', 
                    '11am', '12am', '1pm', '2pm', '3pm', 
                    '4pm', '5pm', '6pm', '7pm', '8pm'];
 var globalTable = document.createElement('table');
-Store.locations = [];
+Store.stores    = [];
 
 function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
 {
@@ -12,9 +12,13 @@ function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
     this.minCustPerHr        = minCustPerHr;
     this.maxCustPerHr        = maxCustPerHr;
     this.avgCookiesPerSale   = avgCookiesPerSale;
-    this.avgCookiesSoldPerHr = [];
+    //this.avgCookiesSoldPerHr = [];
+    this.totalCookiesStore   = [];
+    this.totalCookiesHour    = [];
 
-    Store.locations.push(this);
+    this.getCookieTotals();
+
+    Store.stores.push(this);
 }
 
 Store.prototype.getCustPerHour = function()
@@ -29,7 +33,21 @@ Store.prototype.getAvgCookiesSold = function()
     return Math.floor(this.getCustPerHour() * this.avgCookiesPerSale + 1);
 }
 
-Store.prototype.getAvgCookiesSoldPerHr = function()
+Store.prototype.getCookieTotals = function()
+{
+    for (var i = 0; i < storeHours.length; i++)
+    {
+        this.totalCookiesStore[i] = this.getAvgCookiesSold();
+    }
+    console.log('Store Cookie Totals' + this.totalCookiesStore);
+
+    /*for (var i in Store.stores)
+    {
+        this.totalCookiesHour = this.totalCookiesStore[0];
+    }
+    console.log('Hourly Cookie Totals' + this.totalCookiesHour);*/
+}
+/*Store.prototype.getAvgCookiesSoldPerHr = function()
 {
     var cookieArray = [];
 
@@ -51,11 +69,17 @@ Store.prototype.totalCookiesSold = function()
     }
 
     return totalCookies;
-}
+}*/
 
 function renderTableHead(table) {
-    var thead = document.createElement('thead');
-    var tr    = document.createElement('tr');
+    var thead         = document.createElement('thead');
+    var tr            = document.createElement('tr');
+    var emptyTH       = document.createElement('th');
+    var storeTotalsTH = document.createElement('th');
+    var storeTotals   = document.createTextNode('Store Totals');
+
+    storeTotalsTH.appendChild(storeTotals);
+    tr.appendChild(emptyTH);
 
     for (var i = 0; i < storeHours.length; i++)
     {
@@ -64,10 +88,12 @@ function renderTableHead(table) {
 
         th.appendChild(timeOfDay);
         tr.appendChild(th);
-        thead.appendChild(tr);
-        table.appendChild(thead);
+        
     }
 
+    tr.appendChild(storeTotalsTH);
+    thead.appendChild(tr);
+    table.appendChild(thead);
     document.body.appendChild(table);
 }
 
