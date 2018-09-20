@@ -1,13 +1,13 @@
-//hourly sales at position 0 = store[0].cookiesSold[0] + store[1].cookiesSold[0] + store[2].cookiesSold[0] + store[3].cookiesSold[0] + store[4].cookiesSold[0]
-
 'use strict';
 
 var storeHours  = ['6am', '7am', '8am', '9am', '10am', 
                    '11am', '12am', '1pm', '2pm', '3pm', 
                    '4pm', '5pm', '6pm', '7pm', '8pm'];
-var globalTable = document.createElement('table');
 var hourlySales = [];
-var dailySales  = 0; 
+var dailySales  = 0;
+
+var globalTable = document.getElementById('storeTable');
+var tableForm   = document.getElementById('storeForm');
 
 function Store(location, minCustPerHr, maxCustPerHr, avgCookiesPerSale)
 {
@@ -149,6 +149,28 @@ function renderTableFoot(table)
     table.appendChild(tfoot);
     document.body.appendChild(table);
 }
+
+function addStore(event)
+{
+    event.preventDefault();
+    
+    var newStoreName = event.target.storeName.value;
+    var newMinCust   = event.target.minCustomers.value;
+    var newMaxCust   = event.target.maxCustomers.value;
+    var newCookieAvg = event.target.cookiesPerSale.value;
+    
+    //console.log(newStoreName + newMinCust + newMaxCust + newCookieAvg);
+    new Store(newStoreName, newMinCust, newMaxCust, newCookieAvg);
+
+    globalTable.innerHTML = '';
+
+    renderTableHead(globalTable);
+    renderTableBody(globalTable);
+    renderTableFoot(globalTable);
+}
+
+
+tableForm.addEventListener('submit', addStore);
 
 var firstAndPike  = new Store('1st and Pike',   23, 65, 6.3);
 var seaTacAirport = new Store('SeaTac Airport', 3,  24, 1.2);
