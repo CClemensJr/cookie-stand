@@ -7,28 +7,53 @@
     </head>
 
     <body>
-        <table id="storeTable"></table>
+        <header>
+            Salmon Cookie Sales
+        </header>
+
+        <main>
+            <section>
+                <form id="update-sales">
+                    <table id="sales-data">
+                        <thead></thead>
+                        <tbody></tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </form>
+            </section>
+            
+            <section>
+                <form id="add-store">
+                    <fieldset>
+                        <legend>Add a new store:</legend>
         
-        <form id="storeForm">
-            <fieldset>
-                <legend>Add a new store:</legend>
+                        <label for="name">
+                            Store Name
+                            <input type="text" name="name" required minlength="3" maxlength="20">
+                        </label>
+                        
+                        <label for="min">
+                            Minimum customers per hour:
+                            <input type="number" name="min" required minlength="1" maxlength="3">
+                        </label>
 
-                <label for="storeName">Store Name</label>
-                <input type="text" name="storeName" required minlength="3" maxlength="20">
+                        <label for="max">
+                            Maximum customers per hour:
+                            <input type="number" name="max" required minlength="1" maxlength="3">>
+                        </label>
 
-                <label for="minCustomers">Minimum customers per hour: </label>
-                <input type="text" name="minCustomers" required minlength="1" maxlength="3">
+                        <label for="avg">
+                            Average cookies per sale: 
+                            <input type="text" name="avg" required minlength="1" maxlength="4">
+                        </label>
+                        
+                        <button>Submit</button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
 
-                <label for="maxCustomers">Maximum customers per hour: </label>
-                <input type="text" name="maxCustomers" required minlength="1" maxlength="3">>
-
-                <label for="cookiesPerSale">Average cookies per sale: </label>
-                <input type="text" name="cookiesPerSale" required minlength="1" maxlength="4">
-
-                <button>Submit</button>
-
-            </fieldset>
-        </form>
+        <footer></footer>
 
         <script src="js/app.js"></script>
     </body>
