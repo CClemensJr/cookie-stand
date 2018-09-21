@@ -37,12 +37,14 @@ Store.prototype.getSalesPerHr = function()
     }
 }
 
+
 function rando(min, max)
 {
   var randomNumber = Math.floor(Math.random() * ( max - min +1)) + min;
  
   return randomNumber;
 }
+
 
 function addElement(element, content, parent)
 {
@@ -54,6 +56,7 @@ function addElement(element, content, parent)
 
   return newElement;
 }
+
 
 function renderTableHead() 
 {
@@ -69,6 +72,7 @@ function renderTableHead()
 
     addElement('th', 'Store Totals', tr);
 }
+
 
 function renderTableBody()
 {
@@ -88,6 +92,7 @@ function renderTableBody()
         addElement('td', Store.allStores[j].totalStoreSales, tr);
     }
 }
+
 
 function renderTableFoot(table)
 {
@@ -111,6 +116,7 @@ function renderTableFoot(table)
     } 
     addElement('td', overallTotal, tr);
 }
+
 
 function addStore(event)
 {

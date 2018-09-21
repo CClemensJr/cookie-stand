@@ -1,0 +1,101 @@
+/*Global Styles
+*******/
+@import url('https://fonts.googleapis.com/css?family=Notable');
+
+* {
+    box-shadow: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: #cdcdcd;
+    height: 100%;
+}
+
+
+/*Header Styles
+*******/
+header {
+    background: #011638;
+    border-bottom: 4px solid #214E34;
+    color: #DFF8EB;
+    display: block;
+    font-family: 'Notable', sans-serif;
+    height: 10%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+header section:first-child {
+    background: red;
+    display: inline;
+    margin-left: 15%;
+}
+
+header section:last-child {
+    background: red;
+    display: inline;
+}
+
+header img {
+    float: left;
+    height: 50px;
+    margin-left: 15%;
+    width: 50px;
+}
+
+header nav {
+    float: right;
+    margin-right: 15%;
+}
+
+header nav li {
+    display: inline;
+}
+
+header nav a {
+    color: #cdcdcd;
+}
+
+
+
+
+/*Main Styles
+*******/
+main {
+    height: 70%;
+    margin-top: 6%;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+main section img {
+    border: 4px dotted;
+    margin-top: 10%;
+    z-index: -1;
+}
+
+main section p {
+    color: #364156;
+    font-size: 2em;
+}
+
+
+
+
+/*Footer Styles
+*******/
+footer {
+    background: #214E34;
+    border-top: 4px solid #011638;
+    bottom: 0;
+    height: 20%;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
