@@ -7,9 +7,10 @@
     text-decoration: none;
 }
 
-body {
-    background: #cdcdcd;
-    height: 100%;
+body#index {
+    background-image: url('/img/coffee.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 
@@ -89,7 +90,7 @@ main section p {
 
 /*Footer Styles
 *******/
-footer {
+/* footer {
     background: #214E34;
     border-top: 4px solid #011638;
     bottom: 0;
@@ -98,4 +99,4 @@ footer {
     position: fixed;
     width: 100%;
     text-align: center;
-}
+} */
