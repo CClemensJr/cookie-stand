@@ -17,6 +17,7 @@ body#index {
 }
 
 
+
 /*Header Styles
 *******/
 header {
@@ -43,7 +44,6 @@ header section:first-child img {
 }
 
 header h1 {
-    /* background: red; */
     color: #C7A867;
     font-family: Monoton;
     font-size: 200%;
@@ -79,15 +79,21 @@ header nav li a {
 main {
     height: 70%;
     margin-top: 6%;
-    overflow: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    /* overflow: auto;
     position: absolute;
-    width: 100%;
+    width: 100%; */
     text-align: center;
 }
 
+main section figure {
+    
+}
 main section img {
-    border: 4px dotted;
-    margin-top: 10%;
+    margin-left: 20%;
+    margin-top: 27%;
+    transform: rotate(0.39turn);
     z-index: -1;
 }
 
