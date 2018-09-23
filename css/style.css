@@ -3,7 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Notable');
 
 * {
-    box-shadow: border-box;
+    box-sizing: border-box;
+}
+
+a {
     text-decoration: none;
 }
 
@@ -17,50 +20,49 @@ body#index {
 /*Header Styles
 *******/
 header {
-    background: #011638;
-    border-bottom: 4px solid #214E34;
-    color: #DFF8EB;
-    display: block;
+    background: linear-gradient(to bottom, #0A0C10, #0A0C10, #0A0C10, transparent);
+    color: silver;
     font-family: 'Notable', sans-serif;
-    height: 10%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
-header section:first-child {
-    background: red;
-    display: inline;
+ header>section {
+    height: 6em;
     margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
 }
 
-header section:last-child {
-    background: red;
-    display: inline;
+header section:first-child figure {
+    /* background: blue; */
 }
 
-header img {
-    float: left;
-    height: 50px;
-    margin-left: 15%;
-    width: 50px;
+header section:first-child img {
+    width: 25%;
+    z-index: -1;
 }
 
 header nav {
+    background: red;
+}
+
+header nav ul:first-child {
+    float: left;
+}
+
+header nav ul:last-child {
     float: right;
-    margin-right: 15%;
 }
 
 header nav li {
+    border-right: 2px solid silver;
     display: inline;
+    padding: 10px;
+
 }
 
-header nav a {
-    color: #cdcdcd;
+header nav li a {
+    color: silver;
 }
-
-
 
 
 /*Main Styles
@@ -90,8 +92,8 @@ main section p {
 
 /*Footer Styles
 *******/
-/* footer {
-    background: #214E34;
+footer {
+    background: #292E2B;
     border-top: 4px solid #011638;
     bottom: 0;
     height: 20%;
@@ -99,4 +101,4 @@ main section p {
     position: fixed;
     width: 100%;
     text-align: center;
-} */
+}
