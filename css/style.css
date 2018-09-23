@@ -91,6 +91,7 @@ main section figure {
     
 }
 main section img {
+    filter: blur(1px) brightness(0.8);
     margin-left: 20%;
     margin-top: 27%;
     transform: rotate(0.39turn);
