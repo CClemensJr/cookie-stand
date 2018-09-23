@@ -1,6 +1,6 @@
 /*Global Styles
 *******/
-@import url('https://fonts.googleapis.com/css?family=Notable');
+@import url('https://fonts.googleapis.com/css?family=Notable|Monoton|Raleway');
 
 * {
     box-sizing: border-box;
@@ -33,12 +33,20 @@ header {
 }
 
 header section:first-child figure {
-    /* background: blue; */
+    padding-bottom: 10px;
+    padding-top: 15px;
 }
 
 header section:first-child img {
-    width: 25%;
+    width: 35%;
     z-index: -1;
+}
+
+header h1 {
+    /* background: red; */
+    color: #C7A867;
+    font-family: Monoton;
+    font-size: 200%;
 }
 
 header nav {
@@ -62,6 +70,7 @@ header nav li {
 
 header nav li a {
     color: silver;
+    font-family: Raleway;
 }
 
 
@@ -93,8 +102,7 @@ main section p {
 /*Footer Styles
 *******/
 footer {
-    background: #292E2B;
-    border-top: 4px solid #011638;
+    background: linear-gradient(to bottom, transparent, transparent, #0A0C10, #0A0C10);
     bottom: 0;
     height: 20%;
     left: 0;
