@@ -1,0 +1,51 @@
+main#merch {
+    margin-top: 0;
+}
+
+main#merch h1 {
+    color: 	#3B3C37;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3em;
+}
+
+main#merch h2 {
+    color: 	#3B3C37;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+    padding-bottom: 20px;
+}
+
+main#merch>section div p {
+    background: #AC5233; 
+    font-size: 1.5em;
+    line-height: 30px;
+}
+
+main#merch>section div {
+    float: left;
+    margin-right: 0%;
+}
+
+main#merch>section div div {
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+main#merch>section div div img {
+    border: 2px solid #3B3C37;
+    height: 225px;
+    width: 250px;
+}
+
+main#merch>section div div button {
+    margin-bottom: 30px;
+}
+
+main#merch>section>div:last-child {
+    width: 100%;
+}
+main#merch>section div:last-child img {
+    border: 2px solid #3B3C37;
+}
+
