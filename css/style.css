@@ -1,65 +1,77 @@
 /*Global Styles
 *******/
-@import url('https://fonts.googleapis.com/css?family=Notable');
+@import url('https://fonts.googleapis.com/css?family=Notable|Monoton|Raleway');
 
 * {
-    box-shadow: border-box;
+    box-sizing: border-box;
+}
+
+a {
     text-decoration: none;
 }
 
-body {
-    background: #cdcdcd;
-    height: 100%;
+body#index {
+    background-image: url('/img/coffee.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
+
 
 
 /*Header Styles
 *******/
 header {
-    background: #011638;
-    border-bottom: 4px solid #214E34;
-    color: #DFF8EB;
-    display: block;
+    background: linear-gradient(to bottom, #0A0C10, #0A0C10, #0A0C10, transparent);
+    color: silver;
     font-family: 'Notable', sans-serif;
-    height: 10%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
-header section:first-child {
-    background: red;
-    display: inline;
+ header>section {
+    height: 6em;
     margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
 }
 
-header section:last-child {
-    background: red;
-    display: inline;
+header section:first-child figure {
+    padding-bottom: 10px;
+    padding-top: 15px;
 }
 
-header img {
-    float: left;
-    height: 50px;
-    margin-left: 15%;
-    width: 50px;
+header section:first-child img {
+    width: 35%;
+    z-index: -1;
+}
+
+header h1 {
+    color: #C7A867;
+    font-family: Monoton;
+    font-size: 200%;
 }
 
 header nav {
+    background: red;
+}
+
+header nav ul:first-child {
+    float: left;
+}
+
+header nav ul:last-child {
     float: right;
-    margin-right: 15%;
 }
 
 header nav li {
+    border-right: 2px solid silver;
     display: inline;
+    padding: 10px;
+
 }
 
-header nav a {
-    color: #cdcdcd;
+header nav li a {
+    color: silver;
+    font-family: Raleway;
 }
-
-
 
 
 /*Main Styles
@@ -67,15 +79,17 @@ header nav a {
 main {
     height: 70%;
     margin-top: 6%;
-    overflow: auto;
-    position: absolute;
-    width: 100%;
+    margin-left: 15%;
+    margin-right: 15%;
     text-align: center;
 }
 
+
 main section img {
-    border: 4px dotted;
-    margin-top: 10%;
+    filter: blur(1px) brightness(0.8);
+    margin-left: 20%;
+    margin-top: 27%;
+    transform: rotate(0.39turn);
     z-index: -1;
 }
 
@@ -90,10 +104,9 @@ main section p {
 /*Footer Styles
 *******/
 footer {
-    background: #214E34;
-    border-top: 4px solid #011638;
+    background: linear-gradient(to bottom, transparent, transparent, #0A0C10, #0A0C10);
     bottom: 0;
-    height: 20%;
+    height: 40%;
     left: 0;
     position: fixed;
     width: 100%;
