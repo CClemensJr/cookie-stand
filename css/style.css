@@ -2,6 +2,7 @@
 *******/
 @import url('https://fonts.googleapis.com/css?family=Notable|Monoton|Raleway');
 @import url('/css/about.css');
+@import url('/css/merch.css');
 
 * {
     box-sizing: border-box;
