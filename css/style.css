@@ -81,15 +81,10 @@ main {
     margin-top: 6%;
     margin-left: 15%;
     margin-right: 15%;
-    /* overflow: auto;
-    position: absolute;
-    width: 100%; */
     text-align: center;
 }
 
-main section figure {
-    
-}
+
 main section img {
     filter: blur(1px) brightness(0.8);
     margin-left: 20%;
@@ -111,7 +106,7 @@ main section p {
 footer {
     background: linear-gradient(to bottom, transparent, transparent, #0A0C10, #0A0C10);
     bottom: 0;
-    height: 20%;
+    height: 40%;
     left: 0;
     position: fixed;
     width: 100%;
