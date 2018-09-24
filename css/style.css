@@ -1,6 +1,7 @@
 /*Global Styles
 *******/
 @import url('https://fonts.googleapis.com/css?family=Notable|Monoton|Raleway');
+@import url('/css/about.css');
 
 * {
     box-sizing: border-box;
@@ -8,6 +9,10 @@
 
 a {
     text-decoration: none;
+}
+
+body {
+    background:#CEBDAC;
 }
 
 body#index {
@@ -85,7 +90,7 @@ main {
 }
 
 
-main section img {
+#index>main section img {
     filter: blur(1px) brightness(0.8);
     margin-left: 20%;
     margin-top: 27%;
@@ -94,11 +99,14 @@ main section img {
 }
 
 main section p {
-    color: #364156;
-    font-size: 2em;
+    color: 	#3B3C37;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.25em;
 }
 
-
+main table {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 
 /*Footer Styles
