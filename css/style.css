@@ -15,9 +15,9 @@ body {
 }
 
 body#index {
-    background-image: url('/img/coffee.jpg');
+    background-image: url('https://cclemensjr.github.io/cookie-stand/img/coffee.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 
@@ -94,7 +94,6 @@ main {
     margin-left: 20%;
     margin-top: 27%;
     transform: rotate(0.39turn);
-    z-index: -1;
 }
 
 main section p {
